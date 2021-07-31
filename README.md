@@ -1,7 +1,7 @@
 ## Leetcode Solution scrapper
 
 
-[![Node.js CI](https://github.com/As786sarex/leetcode-solution-scrapper/actions/workflows/node.js.yml/badge.svg)](https://github.com/As786sarex/leetcode-solution-scrapper/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/As786sarex/leetcode-solution-scrapper/actions/workflows/node.js.yml/badge.svg)](https://github.com/As786sarex/leetcode-solution-scraper/actions/workflows/node.js.yml)
 
 #### This repository uses Github Action as a job executor to scrape all of your solved problems.
 ---
@@ -23,5 +23,5 @@
 
 ### Here's some screenshot of successfully executed Github Actions job.
 
-![Build Steps](https://raw.githubusercontent.com/As786sarex/leetcode-solution-scrapper/master/images/build-steps.png?token=AIZ5N66E3SP2EOVQB6WIWMDBBWWV6)
-![Build Steps](https://raw.githubusercontent.com/As786sarex/leetcode-solution-scrapper/master/images/time_elapsed.png?token=AIZ5N65XL22MTIZRF75ZQITBBWZKC)
+![Build Steps](https://raw.githubusercontent.com/As786sarex/leetcode-solution-scraper/master/images/build-steps.png)
+![Build Steps](https://raw.githubusercontent.com/As786sarex/leetcode-solution-scraper/master/images/time_elapsed.png)
