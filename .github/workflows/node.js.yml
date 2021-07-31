@@ -1,0 +1,46 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on: workflow_dispatch
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm install
+    - run: npm run build --if-present
+    - name: switching from http to ssh
+      run: git remote set-url origin ${{secrets.SSH_URL}}
+    - run: git config --global user.email "as786sarex@gmail.com"
+    - run: git config --global user.name "as786sarex"
+    - name: Install ssh key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{secrets.SSH}}
+        name: id_rsa
+        known_hosts: ${{secrets.KNOWN_HOSTS}}
+    - name: check for changes 
+      run: git status
+    - name: stage changed files
+      run: git add .
+    - name: Commit changed file
+      run: git commit -m "Added sources"
+    - name: Fetch from master
+      run: git fetch origin master
+    - name: push to master
+      run: git push -u origin master
