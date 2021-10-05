@@ -17,13 +17,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install
-    - run: npm run build --if-present
     - name: switching from http to ssh
       run: git remote set-url origin ${{secrets.SSH_URL}}
     - run: git config --global user.email "as786sarex@gmail.com"
@@ -34,6 +27,13 @@ jobs:
         key: ${{secrets.SSH}}
         name: id_rsa
         known_hosts: ${{secrets.KNOWN_HOSTS}}
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm install
+    - run: npm run build --if-present
     - name: check for changes 
       run: git status
     - name: stage changed files
