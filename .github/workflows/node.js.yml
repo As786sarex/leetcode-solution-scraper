@@ -41,6 +41,6 @@ jobs:
     - name: Commit changed file
       run: git commit -m "Added sources for second time"
     - name: Fetch from master
-      run: git fetch origin temporary
+      run: git fetch origin master
     - name: push to master
-      run: git push -u origin temporary
+      run: git push -u origin master
