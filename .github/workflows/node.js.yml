@@ -39,8 +39,8 @@ jobs:
     - name: stage changed files
       run: git add .
     - name: Commit changed file
-      run: git commit -m "Added sources"
+      run: git commit -m "Added sources for second time"
     - name: Fetch from master
-      run: git fetch origin master
+      run: git fetch origin temporary
     - name: push to master
-      run: git push -u origin master
+      run: git push -u origin temporary
