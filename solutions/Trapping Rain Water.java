@@ -22,3 +22,28 @@ class Solution {
         return result;
     }
 }
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+class Solution {
+    public int trap(int[] nums) {
+        if(nums.length<=2)
+            return 0;
+        int leftMax=nums[0],rightMax=nums[nums.length-1];
+        int left=1,right=nums.length-2,ans=0;
+        while(left<=right) {
+            if(leftMax>=rightMax) {
+                int current = nums[right];
+                ans += max(0,rightMax-current);
+                rightMax=max(rightMax,current);
+                --right;
+            } else {
+                int current = nums[left];
+                ans += max(0,leftMax-current);
+                leftMax=max(leftMax,current);
+                ++left;
+            }
+        }
+        return ans;
+        
+    }
+}

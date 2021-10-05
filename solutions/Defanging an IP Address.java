@@ -3,3 +3,8 @@ class Solution {
         return address.replaceAll("[.]","[.]");
     }
 }
+class Solution {
+    public String defangIPaddr(String address) {
+        return address.replaceAll("[.]","[.]");
+    }
+}
